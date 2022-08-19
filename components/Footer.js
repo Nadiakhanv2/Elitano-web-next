@@ -1,4 +1,6 @@
 import React from 'react'
+import Image from 'next/image';
+import Link from 'next/link';
 
 const Footer = () => {
   return (
@@ -6,9 +8,11 @@ const Footer = () => {
       <footer className="text-gray-600 body-font">
         <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
           <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
-            <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900 px-5">
-              <img src="./logobrand.jpg" alt="blogImg" width={100}/>
-            </a>
+            <Link href={"/"}>
+              <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900 px-5">
+                <Image src="/logobrand.jpg" alt="blogImg" width={150} height={ 100 } />
+              </a>
+            </Link>
             <p className="px-5 mt-2 text-sm text-gray-500">
               Air plant banjo lyft occupy retro adaptogen indego
             </p>
@@ -20,35 +24,24 @@ const Footer = () => {
               </h2>
               <nav className="list-none mb-10">
                 <li>
-                  <a className="text-gray-600 hover:text-gray-800">First Link</a>
+                  <a className="text-gray-600 hover:text-gray-800">
+                    First Link
+                  </a>
                 </li>
                 <li>
-                  <a className="text-gray-600 hover:text-gray-800">Second Link</a>
+                  <a className="text-gray-600 hover:text-gray-800">
+                    Second Link
+                  </a>
                 </li>
                 <li>
-                  <a className="text-gray-600 hover:text-gray-800">Third Link</a>
+                  <a className="text-gray-600 hover:text-gray-800">
+                    Third Link
+                  </a>
                 </li>
                 <li>
-                  <a className="text-gray-600 hover:text-gray-800">Fourth Link</a>
-                </li>
-              </nav>
-            </div>
-            <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-              <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">
-                CATEGORIES
-              </h2>
-              <nav className="list-none mb-10">
-                <li>
-                  <a className="text-gray-600 hover:text-gray-800">First Link</a>
-                </li>
-                <li>
-                  <a className="text-gray-600 hover:text-gray-800">Second Link</a>
-                </li>
-                <li>
-                  <a className="text-gray-600 hover:text-gray-800">Third Link</a>
-                </li>
-                <li>
-                  <a className="text-gray-600 hover:text-gray-800">Fourth Link</a>
+                  <a className="text-gray-600 hover:text-gray-800">
+                    Fourth Link
+                  </a>
                 </li>
               </nav>
             </div>
@@ -58,16 +51,24 @@ const Footer = () => {
               </h2>
               <nav className="list-none mb-10">
                 <li>
-                  <a className="text-gray-600 hover:text-gray-800">First Link</a>
+                  <a className="text-gray-600 hover:text-gray-800">
+                    First Link
+                  </a>
                 </li>
                 <li>
-                  <a className="text-gray-600 hover:text-gray-800">Second Link</a>
+                  <a className="text-gray-600 hover:text-gray-800">
+                    Second Link
+                  </a>
                 </li>
                 <li>
-                  <a className="text-gray-600 hover:text-gray-800">Third Link</a>
+                  <a className="text-gray-600 hover:text-gray-800">
+                    Third Link
+                  </a>
                 </li>
                 <li>
-                  <a className="text-gray-600 hover:text-gray-800">Fourth Link</a>
+                  <a className="text-gray-600 hover:text-gray-800">
+                    Fourth Link
+                  </a>
                 </li>
               </nav>
             </div>
@@ -77,16 +78,51 @@ const Footer = () => {
               </h2>
               <nav className="list-none mb-10">
                 <li>
-                  <a className="text-gray-600 hover:text-gray-800">First Link</a>
+                  <a className="text-gray-600 hover:text-gray-800">
+                    First Link
+                  </a>
                 </li>
                 <li>
-                  <a className="text-gray-600 hover:text-gray-800">Second Link</a>
+                  <a className="text-gray-600 hover:text-gray-800">
+                    Second Link
+                  </a>
                 </li>
                 <li>
-                  <a className="text-gray-600 hover:text-gray-800">Third Link</a>
+                  <a className="text-gray-600 hover:text-gray-800">
+                    Third Link
+                  </a>
                 </li>
                 <li>
-                  <a className="text-gray-600 hover:text-gray-800">Fourth Link</a>
+                  <a className="text-gray-600 hover:text-gray-800">
+                    Fourth Link
+                  </a>
+                </li>
+              </nav>
+            </div>
+            <div className="lg:w-1/4 md:w-1/2 w-full px-4">
+              <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">
+                CATEGORIES
+              </h2>
+              <nav className="list-none mb-10">
+                <li>
+                  <a className="text-gray-600 hover:text-gray-800">
+                    First Link
+                  </a>
+                </li>
+                <li>
+                  <a className="text-gray-600 hover:text-gray-800">
+                    Second Link
+                  </a>
+                </li>
+                <li>
+                  <a className="text-gray-600 hover:text-gray-800">
+                    Third Link
+                  </a>
+                </li>
+                <li>
+                  <a className="text-gray-600 hover:text-gray-800">
+                    Fourth Link
+                  </a>
                 </li>
               </nav>
             </div>

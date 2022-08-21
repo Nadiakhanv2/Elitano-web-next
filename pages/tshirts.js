@@ -4,14 +4,14 @@ const Tshirts = () => {
   return (
     <div>
       <section className="text-gray-600 body-font">
-        <div className="container px-10 py-24 mx-auto ">
+        <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-wrap -m-4">
             <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-              <a className="block relative rounded overflow-hidden">
+              <a className="block relative h-48 rounded overflow-hidden">
                 <img
                   alt="ecommerce"
-                  className="object-top  h-[40vh] block"
-                  src="https://m.media-amazon.com/images/I/71c-usllBCL._AC_UY550_.jpg"
+                  className="object-cover object-center w-full h-full block"
+                  src="https://image.made-in-china.com/2f0j00sFuEOoIGYhrf/High-Quality-Combed-Cotton-Ladies-T-Shirt.jpg"
                 />
               </a>
               <div className="mt-4">
@@ -25,11 +25,11 @@ const Tshirts = () => {
               </div>
             </div>
             <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-              <a className="block relative  rounded overflow-hidden">
+              <a className="block relative h-48 rounded overflow-hidden">
                 <img
                   alt="ecommerce"
-                  className=" object-top  h-[40vh] block"
-                  src="https://m.media-amazon.com/images/I/71c-usllBCL._AC_UY550_.jpg"
+                  className="object-cover object-center w-full h-full block"
+                  src="https://image.made-in-china.com/2f0j00sFuEOoIGYhrf/High-Quality-Combed-Cotton-Ladies-T-Shirt.jpg"
                 />
               </a>
               <div className="mt-4">
@@ -43,11 +43,11 @@ const Tshirts = () => {
               </div>
             </div>
             <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-              <a className="block relative rounded overflow-hidden">
+              <a className="block relative h-48 rounded overflow-hidden">
                 <img
                   alt="ecommerce"
-                  className="object-top  h-[40vh] block"
-                  src="https://m.media-amazon.com/images/I/71c-usllBCL._AC_UY550_.jpg"
+                  className="object-cover object-center w-full h-full block"
+                  src="https://image.made-in-china.com/2f0j00sFuEOoIGYhrf/High-Quality-Combed-Cotton-Ladies-T-Shirt.jpg"
                 />
               </a>
               <div className="mt-4">
@@ -61,11 +61,11 @@ const Tshirts = () => {
               </div>
             </div>
             <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-              <a className="block relative rounded overflow-hidden">
+              <a className="block relative h-48 rounded overflow-hidden">
                 <img
                   alt="ecommerce"
-                  className="object-top  h-[40vh] block"
-                  src="https://m.media-amazon.com/images/I/71c-usllBCL._AC_UY550_.jpg"
+                  className="object-cover object-center w-full h-full block"
+                  src="https://image.made-in-china.com/2f0j00sFuEOoIGYhrf/High-Quality-Combed-Cotton-Ladies-T-Shirt.jpg"
                 />
               </a>
               <div className="mt-4">
@@ -79,11 +79,11 @@ const Tshirts = () => {
               </div>
             </div>
             <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-              <a className="block relative rounded overflow-hidden">
+              <a className="block relative h-48 rounded overflow-hidden">
                 <img
                   alt="ecommerce"
-                  className="object-top  h-[40vh] block"
-                  src="https://m.media-amazon.com/images/I/71c-usllBCL._AC_UY550_.jpg"
+                  className="object-cover object-center w-full h-full block"
+                  src="https://image.made-in-china.com/2f0j00sFuEOoIGYhrf/High-Quality-Combed-Cotton-Ladies-T-Shirt.jpg"
                 />
               </a>
               <div className="mt-4">
@@ -97,11 +97,11 @@ const Tshirts = () => {
               </div>
             </div>
             <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-              <a className="block relative rounded overflow-hidden">
+              <a className="block relative h-48 rounded overflow-hidden">
                 <img
                   alt="ecommerce"
-                  className="object-top  h-[40vh] block"
-                  src="https://m.media-amazon.com/images/I/71c-usllBCL._AC_UY550_.jpg"
+                  className="object-cover object-center w-full h-full block"
+                  src="https://image.made-in-china.com/2f0j00sFuEOoIGYhrf/High-Quality-Combed-Cotton-Ladies-T-Shirt.jpg"
                 />
               </a>
               <div className="mt-4">
@@ -115,11 +115,11 @@ const Tshirts = () => {
               </div>
             </div>
             <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-              <a className="block relative rounded overflow-hidden">
+              <a className="block relative h-48 rounded overflow-hidden">
                 <img
                   alt="ecommerce"
-                  className="object-top  h-[40vh] block"
-                  src="https://m.media-amazon.com/images/I/71c-usllBCL._AC_UY550_.jpg"
+                  className="object-cover object-center w-full h-full block"
+                  src="https://image.made-in-china.com/2f0j00sFuEOoIGYhrf/High-Quality-Combed-Cotton-Ladies-T-Shirt.jpg"
                 />
               </a>
               <div className="mt-4">
@@ -133,11 +133,11 @@ const Tshirts = () => {
               </div>
             </div>
             <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-              <a className="block relative rounded overflow-hidden">
+              <a className="block relative h-48 rounded overflow-hidden">
                 <img
                   alt="ecommerce"
-                  className="object-top  h-[40vh] block"
-                  src="https://m.media-amazon.com/images/I/71c-usllBCL._AC_UY550_.jpg"
+                  className="object-cover object-center w-full h-full block"
+                  src="https://image.made-in-china.com/2f0j00sFuEOoIGYhrf/High-Quality-Combed-Cotton-Ladies-T-Shirt.jpg"
                 />
               </a>
               <div className="mt-4">

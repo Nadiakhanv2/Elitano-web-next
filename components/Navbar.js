@@ -25,19 +25,24 @@ const Navbar = () => {
                   <li className="text-red-500">Tshirts</li>
                 </a>
               </Link>
-              <Link href={"/hoodies"}>
+              <Link href={"/beauty"}>
                 <a className="mr-5 hover:text-gray-900">
+                  <li className="text-red-500">Beauty</li>
+                </a>
+              </Link>
+              <Link href={"/accessories"}>
+                <a className="mr-5 hover:text-gray-900">
+                  <li className="text-red-500">Accessories</li>
+                </a>
+              </Link>
+              <Link href={"/hoodies"}>
+                <a className="mr-10 hover:text-gray-900">
                   <li className="text-red-500">Hoodies</li>
                 </a>
               </Link>
-              <Link href={"/stickers"}>
-                <a className="mr-10 hover:text-gray-900">
-                  <li className="text-red-500">Stickers</li>
-                </a>
-              </Link>
-              <Link href={"/mugs"}>
+              <Link href={"/shoes"}>
                 <a className="mr-5 hover:text-gray-900">
-                  <li className="text-red-500">Mugs</li>
+                  <li className="text-red-500">Shoes</li>
                 </a>
               </Link>
             </ul>

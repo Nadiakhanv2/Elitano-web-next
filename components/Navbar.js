@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { AiOutlineShoppingCart } from "react-icons/ai";
+import { Ref } from "react";
+import { AiOutlineShoppingCart, AiOutlineCloseCircle } from "react-icons/ai";
 
 const Navbar = () => {
+  const toggleCart = () => {
+    if (ref.current.classList.contains("translate-x-full")) {
+      ref.current.classList.remove("translate-x-full")
+      ref.current.classList.add("translate-x-0")
+    } else if (!ref.current.classList.contains("translate-x-full")) {
+      ref.current.classList.remove("translate-x-0")
+      ref.current.classList.add("translate-x-full")
+    }
+
+
+  }
+  const ref=useRef()
   return (
     <div>
       <header className="text-gray-600 body-font shadow-md mb-1">
@@ -47,11 +60,22 @@ const Navbar = () => {
               </Link>
             </ul>
           </nav>
-          <div className="cart absolute  right-2  mr-5">
+          <div className="cart absolute  right-2  mr-5" onClick={toggleCart}>
             <AiOutlineShoppingCart className="text-3xl mt-2 text-red-500" />
           </div>
+          <div ref={ref} className="sideCart absolute top-0 right-0 bg-red-100 p-10 transform transition-transform translate-x-full ">
+            <h2 className="font-bold text-xl">Shopping Cart</h2>
+            <span onClick={toggleCart} className="absolute top-5 right-2 cursor-pointer text-2xl text-red-500"><AiOutlineCloseCircle /></span>
+            <ol>
+              <li>
+                <span>Tshirt - wear the comfortable outfit</span>
+              </li>
+            </ol>
+          </div>
+
         </div>
       </header>
+
     </div>
   );
 };

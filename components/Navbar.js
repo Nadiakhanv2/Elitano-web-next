@@ -82,6 +82,10 @@ const Navbar = ({ cart, addToCart, clearCart, subTotal, removeFromCart }) => {
               <AiOutlineCloseCircle />
             </span>
             <ol className="list-decimal font-semibold">
+              {Object.keys(cart).length == 0 && <div className="my-4 font-semibold">
+               Cart is Empty!
+                
+              </div>}
               {Object.keys(cart).map((k) => {
                 return (
                   <li key={k}>

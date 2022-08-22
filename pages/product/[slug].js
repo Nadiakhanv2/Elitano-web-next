@@ -9,7 +9,7 @@ import {
   RiHeartLine,
 } from "react-icons/ri";
 
-const Slug = () => {
+const Slug = ({addToCart}) => {
   const router = useRouter();
   const { slug } = router.query;
   const [pin, setPin] = useState();
@@ -104,7 +104,7 @@ const Slug = () => {
                 <button className="flex ml-4 text-white bg-red-500 border-0 py-2 md:px-4 px-2 focus:outline-none hover:bg-red-600 rounded">
                   Buy Now
                 </button>
-                <button className="flex ml-4 text-white bg-red-500 border-0 py-2 md:px-4 px-2 focus:outline-none hover:bg-red-600 rounded">
+                <button onClick={()=>{addToCart(slug , 1 , 5999 , 'Glamor by wearing the Tshirt(XL , Red)' , "XL" , "Red")}} className="flex ml-4 text-white bg-red-500 border-0 py-2 md:px-4 px-2 focus:outline-none hover:bg-red-600 rounded">
                   Add to Cart
                 </button>
                 <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">

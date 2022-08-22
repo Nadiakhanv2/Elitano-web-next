@@ -37,37 +37,37 @@ const Navbar = () => {
               />
             </a>
           </Link>
-          <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-            <ul className="flex">
+          <nav className="md:ml-2 md:mr-2 flex flex-wrap items-start text-base justify-start">
+            <ul className="flex font-bold">
               <Link href={"/tshirts"}>
-                <a className="mr-5 hover:text-gray-900">
-                  <li className="text-red-500">Tshirts</li>
+                <a className="mr-5 hover:text-red-500">
+                  <li className="text-gray-900">Tshirts</li>
                 </a>
               </Link>
               <Link href={"/beauty"}>
-                <a className="mr-5 hover:text-gray-900">
-                  <li className="text-red-500">Beauty</li>
+                <a className="mr-5 hover:text-red-500">
+                  <li>Beauty</li>
                 </a>
               </Link>
               <Link href={"/accessories"}>
-                <a className="mr-5 hover:text-gray-900">
-                  <li className="text-red-500">Accessories</li>
+                <a className="mr-5 hover:text-red-500">
+                  <li >Accessories</li>
                 </a>
               </Link>
               <Link href={"/hoodies"}>
-                <a className="mr-10 hover:text-gray-900">
-                  <li className="text-red-500">Hoodies</li>
+                <a className="mr-10 hover:text-red-500">
+                  <li>Hoodies</li>
                 </a>
               </Link>
               <Link href={"/shoes"}>
-                <a className="mr-5 hover:text-gray-900">
-                  <li className="text-red-500">Shoes</li>
+                <a className="mr-5 hover:text-red-500">
+                  <li>Shoes</li>
                 </a>
               </Link>
             </ul>
           </nav>
           <div className="cart absolute  right-2  mr-5" onClick={toggleCart}>
-            <AiOutlineShoppingCart className="text-3xl mt-2 text-red-500" />
+            <AiOutlineShoppingCart className="text-3xl mt-2 text-red-500 cursor-pointer" />
           </div>
           <div
             ref={ref}
@@ -114,9 +114,14 @@ const Navbar = () => {
                 </div>
               </li>
             </ol>
-            <button class="flex text-white bg-red-500 border-0 py-1 px-4 focus:outline-none hover:bg-red-600 rounded">
-             <BsFillBagCheckFill className='m-1'/> Checkout
-            </button>
+            <div className="flex">
+              <button className="flex mr-2 text-white bg-red-500 border-0 py-2 px-2 focus:outline-none hover:bg-red-600 rounded">
+                <BsFillBagCheckFill className="m-1" /> Checkout
+              </button>
+              <button className="flex mr-2 text-white bg-red-500 border-0 py-2 px-2 focus:outline-none hover:bg-red-600 rounded">
+                Clear cart
+              </button>
+            </div>
           </div>
         </div>
       </header>

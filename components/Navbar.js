@@ -12,7 +12,8 @@ import {
   BsFillBagCheckFill
 } from "react-icons/bs";
 
-const Navbar = () => {
+const Navbar = ({ cart, addToCart, clearCart, subTotal, removeFromCart }) => {
+  console.log(cart, addToCart, clearCart, subTotal, removeFromCart);
   const toggleCart = () => {
     if (ref.current.classList.contains("translate-x-full")) {
       ref.current.classList.remove("translate-x-full");
@@ -51,7 +52,7 @@ const Navbar = () => {
               </Link>
               <Link href={"/accessories"}>
                 <a className="mr-5 hover:text-red-500">
-                  <li >Accessories</li>
+                  <li>Accessories</li>
                 </a>
               </Link>
               <Link href={"/hoodies"}>
@@ -81,44 +82,29 @@ const Navbar = () => {
               <AiOutlineCloseCircle />
             </span>
             <ol className="list-decimal font-semibold">
-              <li>
-                <div className="item flex my-5">
-                  <div className="w-2/3 ">
-                    Tshirt - wear the comfortable outfit
-                  </div>
-                  <div className="w-1/3  flex justify-center items-center text-lg">
-                    <AiFillMinusCircle className="cursor-pointer text-red-500" />
-                    <span className="mx-1">1</span>
-                    <AiFillPlusCircle className="cursor-pointer text-red-500" />
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div className="item flex my-5">
-                  <div className="w-2/3 ">
-                    Tshirt - wear the comfortable outfit
-                  </div>
-                  <div className="w-1/3  flex justify-center items-center">
-                    1
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div className="item flex my-5">
-                  <div className="w-2/3 ">
-                    Tshirt - wear the comfortable outfit
-                  </div>
-                  <div className="w-1/3  flex justify-center items-center">
-                    1
-                  </div>
-                </div>
-              </li>
+              {Object.keys(cart).map((k) => {
+                return (
+                  <li key={k}>
+                    <div className="item flex my-5">
+                      <div className="w-2/3 ">{cart[k].name}</div>
+                      <div className="w-1/3  flex justify-center items-center text-lg">
+                        <AiFillMinusCircle className="cursor-pointer text-red-500" />
+                        <span className="mx-1">{cart[k].qty}</span>
+                        <AiFillPlusCircle className="cursor-pointer text-red-500" />
+                      </div>
+                    </div>
+                  </li>
+                );
+              })}
             </ol>
             <div className="flex">
               <button className="flex mr-2 text-white bg-red-500 border-0 py-2 px-2 focus:outline-none hover:bg-red-600 rounded">
                 <BsFillBagCheckFill className="m-1" /> Checkout
               </button>
-              <button className="flex mr-2 text-white bg-red-500 border-0 py-2 px-2 focus:outline-none hover:bg-red-600 rounded">
+              <button
+                onClick={clearCart}
+                className="flex mr-2 text-white bg-red-500 border-0 py-2 px-2 focus:outline-none hover:bg-red-600 rounded"
+              >
                 Clear cart
               </button>
             </div>

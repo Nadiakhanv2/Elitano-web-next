@@ -18,7 +18,7 @@ const Slug = () => {
   const checkServiceAbility = async () => {
     let pins = await fetch(' http://localhost:3000/api/pincode')
     let pinJson = await pins.json();
-    if (pinJson.includes(pin)) {
+    if (pinJson.includes(parseInt(pin))) {
       setService(true);
     } else {
       setService(false);
@@ -41,10 +41,10 @@ const Slug = () => {
             />
             <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
               <h2 className="text-sm title-font text-gray-500 tracking-widest">
-                BRAND NAME
+                GlamorWeek
               </h2>
               <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
-                The Catcher in the Rye
+                Glamor by Wearing a T-Shirt ( XL/Red )
               </h1>
               <div className="flex mb-4">
                 <span className="flex items-center">
@@ -99,9 +99,12 @@ const Slug = () => {
               </div>
               <div className="flex">
                 <span className="title-font font-medium text-2xl text-gray-900">
-                  $58.00
+                  ₨ 5800
                 </span>
-                <button className="flex ml-14 text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">
+                <button className="flex ml-4 text-white bg-red-500 border-0 py-2 md:px-4 px-2 focus:outline-none hover:bg-red-600 rounded">
+                  Buy Now
+                </button>
+                <button className="flex ml-4 text-white bg-red-500 border-0 py-2 md:px-4 px-2 focus:outline-none hover:bg-red-600 rounded">
                   Add to Cart
                 </button>
                 <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
@@ -112,12 +115,26 @@ const Slug = () => {
                 <input
                   onChange={checkPin}
                   type="text"
+                  placeholder="Enter Your Pincode"
                   className="px-2 border-2 border-gray-300 rounded-md focus:outline-none"
                 />
-                <button onClick={checkServiceAbility} className="text-white ml-2 bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded-lg">
+                <button
+                  onClick={checkServiceAbility}
+                  className="text-white ml-2 bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded-lg"
+                >
                   Check
                 </button>
               </div>
+              {!service && service != null && (
+                <div className="text-green-300 mt-4 text-sm">
+                  <span>Sorry ! Code not delievered</span>
+                </div>
+              )}
+              {service && service != null && (
+                <div className="text-indigo-300 mt-4 text-sm">
+                  <span>Yay ! Code deliever successfully</span>
+                </div>
+              )}
             </div>
           </div>
         </div>

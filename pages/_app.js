@@ -14,13 +14,13 @@ function MyApp({ Component, pageProps }) {
       }
     }
     catch (error) {
-      console.log(error);
+      console.error(error);
       localStorage.clear();
     }
   }, []);
 
   const saveCart = (myCart) => {
-    localStorage.setItem('cart', myCart);
+    localStorage.setItem('cart', JSON.stringify(myCart));
     let subt = 0;
     let keys = Object.keys(myCart);
     for (let i=0; i < keys.length; i++ ) {
@@ -32,6 +32,7 @@ function MyApp({ Component, pageProps }) {
     let newCart = cart;
     if (itemCode in cart) {
       newCart[itemCode].qty = cart[itemCode].qty + qty;
+
     } else {
       newCart[itemCode]= {qty : 1, price , name , size , variant}
     }
@@ -43,9 +44,9 @@ function MyApp({ Component, pageProps }) {
     saveCart({});
   }
   const removeFromCart = (itemCode, qty, name, price, size, variant) => {
-    let newCart = cart;
+    let newCart = JSON.parse(JSON.stringify(cart));
     if (itemCode in cart) {
-      newCart[itemCode].qty = cart[itemCode].qty + qty;
+      newCart[itemCode].qty = cart[itemCode].qty - qty;
     } 
     if (newCart[itemCode]["qty"] <= 0) {
       delete newCart[itemCode];

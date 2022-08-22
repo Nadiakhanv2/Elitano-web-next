@@ -2,7 +2,15 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Ref } from "react";
-import { AiOutlineShoppingCart, AiOutlineCloseCircle } from "react-icons/ai";
+import {
+  AiOutlineShoppingCart,
+  AiOutlineCloseCircle,
+  AiFillPlusCircle,
+  AiFillMinusCircle,
+} from "react-icons/ai";
+import {
+  BsFillBagCheckFill
+} from "react-icons/bs";
 
 const Navbar = () => {
   const toggleCart = () => {
@@ -63,7 +71,7 @@ const Navbar = () => {
           </div>
           <div
             ref={ref}
-            className="sideCart absolute top-0 w-75 right-0 bg-red-100 px-5 py-10 transform transition-transform translate-x-full "
+            className="sideCart absolute top-0 h-full right-0 bg-red-100 px-10 py-10 transform transition-transform translate-x-full "
           >
             <h2 className="font-bold text-xl text-center">Shopping Cart</h2>
             <span
@@ -72,14 +80,43 @@ const Navbar = () => {
             >
               <AiOutlineCloseCircle />
             </span>
-            <ol className="list-decimal">
+            <ol className="list-decimal font-semibold">
               <li>
-                <span className="w-2/3 bg-red-400">
-                  Tshirt - wear the comfortable outfit
-                </span>
-                <span className="w-1/3 bg-red-300">1</span>
+                <div className="item flex my-5">
+                  <div className="w-2/3 ">
+                    Tshirt - wear the comfortable outfit
+                  </div>
+                  <div className="w-1/3  flex justify-center items-center text-lg">
+                    <AiFillMinusCircle className="cursor-pointer text-red-500" />
+                    <span className="mx-1">1</span>
+                    <AiFillPlusCircle className="cursor-pointer text-red-500" />
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div className="item flex my-5">
+                  <div className="w-2/3 ">
+                    Tshirt - wear the comfortable outfit
+                  </div>
+                  <div className="w-1/3  flex justify-center items-center">
+                    1
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div className="item flex my-5">
+                  <div className="w-2/3 ">
+                    Tshirt - wear the comfortable outfit
+                  </div>
+                  <div className="w-1/3  flex justify-center items-center">
+                    1
+                  </div>
+                </div>
               </li>
             </ol>
+            <button class="flex text-white bg-red-500 border-0 py-1 px-4 focus:outline-none hover:bg-red-600 rounded">
+             <BsFillBagCheckFill className='m-1'/> Checkout
+            </button>
           </div>
         </div>
       </header>

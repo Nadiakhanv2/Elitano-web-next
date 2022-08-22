@@ -13,7 +13,7 @@ import {
 } from "react-icons/bs";
 
 const Navbar = ({ cart, addToCart, clearCart, removeFromCart, subTotal }) => {
-  console.log(cart, addToCart, clearCart, removeFromCart, subTotal);
+  // console.log(cart, addToCart, clearCart, removeFromCart, subTotal);
   const toggleCart = () => {
     if (ref.current.classList.contains("translate-x-full")) {
       ref.current.classList.remove("translate-x-full");
@@ -82,16 +82,16 @@ const Navbar = ({ cart, addToCart, clearCart, removeFromCart, subTotal }) => {
               <AiOutlineCloseCircle />
             </span>
             <ol className="list-decimal font-semibold">
-              {Object.keys(cart).length == 0 && (
-                <div className="my-4 font-semibold">Cart is Empty!</div>
-              )}
+              {Object.keys(cart).length == 0 && <div className="my-4 font-semibold">Cart is Empty!</div>
+              }
               {Object.keys(cart).map((k) => {
-                return (
+                return(
                   <li key={k}>
                     <div className="item flex my-5">
                       <div className="w-2/3 ">{cart[k].name}</div>
                       <div className="w-1/3  flex justify-center items-center text-lg">
-                        <AiFillMinusCircle className="cursor-pointer text-red-500" />
+                        <AiFillMinusCircle onClick={()=>{removeFromCart(k , 1, cart(k).price,cart(k).name, cart(k).size, cart(k).variant
+                        )}} className="cursor-pointer text-red-500" />
                         <span className="mx-1">{cart[k].qty}</span>
                         <AiFillPlusCircle className="cursor-pointer text-red-500" />
                       </div>
@@ -102,7 +102,7 @@ const Navbar = ({ cart, addToCart, clearCart, removeFromCart, subTotal }) => {
             </ol>
             <div className="flex">
               <button className="flex mr-2 text-white bg-red-500 border-0 py-2 px-2 focus:outline-none hover:bg-red-600 rounded">
-                <BsFillBagCheckFill className="m-1" /> Checkout
+                <BsFillBagCheckFill className="m-1"/> Checkout
               </button>
               <button
                 onClick={clearCart}

@@ -19,6 +19,12 @@ function MyApp({ Component, pageProps }) {
     setCart(newCart);
     saveCart(newCart);
   }
+  const clearCart = () => {
+    setCart({});
+    saveCart({});
+  }
+  
+
   return (
     <>
       <Navbar />

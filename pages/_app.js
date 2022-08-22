@@ -23,6 +23,17 @@ function MyApp({ Component, pageProps }) {
     setCart({});
     saveCart({});
   }
+  const removeFromCart = (itemCode, qty, name, price, size, variant) => {
+    let newCart = cart;
+    if (itemCode in cart) {
+      newCart[itemCode].qty = cart[itemCode].qty + qty;
+    } 
+    if (newCart[itemCode]["qty"] <= 0) {
+      delete newCart[itemCode];
+    }
+    setCart(newCart);
+    saveCart(newCart);
+  };
   
 
   return (

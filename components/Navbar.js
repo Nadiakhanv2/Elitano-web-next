@@ -85,15 +85,36 @@ const Navbar = ({ cart, addToCart, clearCart, removeFromCart, subTotal }) => {
               {Object.keys(cart).length == 0 && <div className="my-4 font-semibold">Cart is Empty!</div>
               }
               {Object.keys(cart).map((k) => {
-                return(
+                return (
                   <li key={k}>
                     <div className="item flex my-5">
                       <div className="w-2/3 ">{cart[k].name}</div>
                       <div className="w-1/3  flex justify-center items-center text-lg">
-                        <AiFillMinusCircle onClick={()=>{removeFromCart(k , 1, cart(k).price,cart(k).name, cart(k).size, cart(k).variant
-                        )}} className="cursor-pointer text-red-500" />
+                        <AiFillMinusCircle
+                          onClick={() => {
+                            removeFromCart(
+                              k,
+                              1,
+                              cart[k].name,
+                              cart[k].price,
+                              cart[k].variant
+                            );
+                          }}
+                          className="cursor-pointer text-red-500"
+                        />
                         <span className="mx-1">{cart[k].qty}</span>
-                        <AiFillPlusCircle className="cursor-pointer text-red-500" />
+                        <AiFillPlusCircle
+                          className="cursor-pointer text-red-500"
+                          onClick={() => {
+                            addToCart(
+                              k,
+                              1,
+                              cart[k].name,
+                              cart[k].price,
+                              cart[k].variant
+                            );
+                          }}
+                        />
                       </div>
                     </div>
                   </li>

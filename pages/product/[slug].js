@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import { useState } from "react";
 
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import {
@@ -11,6 +12,22 @@ import {
 const Slug = () => {
   const router = useRouter();
   const { slug } = router.query;
+  const [pin, setPin] = useState();
+  const [service, setService] = useState();
+  
+  const checkServiceAbility = async () => {
+    let pins = await fetch(' http://localhost:3000/api/pincode')
+    let pinJson = await pins.json();
+    if (pinJson.includes(pin)) {
+      setService(true);
+    } else {
+      setService(false);
+    }
+  }
+
+  const checkPin = (e) => {
+    setPin(e.target.value);
+  }
 
   return (
     <>
@@ -93,10 +110,11 @@ const Slug = () => {
               </div>
               <div className="pin flex mt-6 text-sm space-x-2">
                 <input
+                  onChange={checkPin}
                   type="text"
                   className="px-2 border-2 border-gray-300 rounded-md focus:outline-none"
                 />
-                <button className="text-white ml-2 bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded-lg">
+                <button onClick={checkServiceAbility} className="text-white ml-2 bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded-lg">
                   Check
                 </button>
               </div>

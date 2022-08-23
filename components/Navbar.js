@@ -11,7 +11,6 @@ import {
 import { BsFillBagCheckFill } from "react-icons/bs";
 
 const Navbar = ({ cart, addToCart, clearCart, removeFromCart, subTotal }) => {
-  // console.log(cart, addToCart, clearCart, removeFromCart, subTotal);
   const toggleCart = () => {
     if (ref.current.classList.contains("translate-x-full")) {
       ref.current.classList.remove("translate-x-full");
@@ -64,7 +63,11 @@ const Navbar = ({ cart, addToCart, clearCart, removeFromCart, subTotal }) => {
         </div>
         <div
           ref={ref}
-          className="sideCart absolute top-0 h-[100vh] right-0 bg-red-100 px-10 py-10 transform transition-transform translate-x-full "
+          className={`sideCart sideCartW absolute top-0 h-[100vh] right-0 bg-red-100 px-10 py-10 transform transition-transform ${
+            Object.keys(cart).length !== 0
+              ? "translate-x-0"
+              : "translate - x - full"
+          } `}
         >
           <h2 className="font-bold text-xl text-center">Shopping Cart</h2>
           <span
@@ -88,8 +91,9 @@ const Navbar = ({ cart, addToCart, clearCart, removeFromCart, subTotal }) => {
                           removeFromCart(
                             k,
                             1,
-                            cart[k].name,
                             cart[k].price,
+                            cart[k].name,
+                            cart[k].size,
                             cart[k].variant
                           );
                         }}
@@ -102,8 +106,9 @@ const Navbar = ({ cart, addToCart, clearCart, removeFromCart, subTotal }) => {
                           addToCart(
                             k,
                             1,
-                            cart[k].name,
                             cart[k].price,
+                            cart[k].name,
+                            cart[k].size,
                             cart[k].variant
                           );
                         }}
@@ -114,6 +119,8 @@ const Navbar = ({ cart, addToCart, clearCart, removeFromCart, subTotal }) => {
               );
             })}
           </ol>
+          <div className="font-semibold my-2">SubTotal : Rs{subTotal}</div>
+
           <div className="flex">
             <Link href={"/checkout"}>
               <button className="flex mr-2 text-white bg-red-500 border-0 py-2 px-2 focus:outline-none hover:bg-red-600 rounded">

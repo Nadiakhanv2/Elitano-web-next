@@ -9,4 +9,4 @@ npx tailwindcss init -p
 
 
 
-<!-- npm i mongoose      /////  adding mongodb database -->
+<!-- yarn add mongoose      /////  adding mongodb database -->

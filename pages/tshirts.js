@@ -2,6 +2,7 @@ import React from "react";
 import mongoose from "mongoose";
 import Product from "../models/product";
 import Link from "next/link";
+// import product from "../models/product";
 
 const Tshirts = ({ products }) => {
   return (
@@ -9,15 +10,19 @@ const Tshirts = ({ products }) => {
       <section className="text-gray-600 body-font">
         <div className="container md:px-20 py-24 mx-auto ">
           <div className="flex flex-wrap -m-4">
-            {products.map((item) => {
+            {Object.keys(products).map((item) => {
               return (
-                <Link href={`/product/${item.slug}`} key={item._id} passHref={true}>
+                <Link
+                  href={`/product/${item.slug}`}
+                  key={products[item]._id}
+                  passHref={true}
+                >
                   <div className="lg:w-1/4 md:w-1/2 p-4 w-full hover:shadow-lg ">
                     <a className="block relative h-48 rounded overflow-hidden">
                       <img
                         alt="ecommerce"
                         className="object-cover object-center w-full h-full block"
-                        src={item.img}
+                        src={products[item].img}
                       />
                     </a>
                     <div className="mt-4">
@@ -25,9 +30,32 @@ const Tshirts = ({ products }) => {
                         Tshirts
                       </h3>
                       <h2 className="text-gray-900 title-font text-lg font-medium">
-                        {item.title}
+                        {products[item].title}
                       </h2>
-                      <p className="mt-1">{item.price}</p>
+                      <p className="mt-1">{products[item].price}</p>
+                      <div className="mt-1">
+                        {products[item].size.includes("XL") && (
+                          <span className="border border-gray-600 px-1 mx-1">
+                            {" "}
+                            XL,
+                          </span>
+                        )}
+                        {products[item].size.includes("XXl") && (
+                          <span className="border border-gray-600 px-1 mx-1">
+                            XXl,
+                          </span>
+                        )}
+                        {products[item].size.includes("M") && (
+                          <span className="border border-gray-600 px-1 mx-1">
+                            M,
+                          </span>
+                        )}
+                        {products[item].size.includes("S") && (
+                          <span className="border border-gray-600 px-1 mx-1">
+                            S
+                          </span>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </Link>
@@ -44,10 +72,33 @@ export async function getServerSideProps(context) {
   if (!mongoose.connections[0].readyState) {
     await mongoose.connect(process.env.MONGO_URI);
   }
-  let products = await Product.find();
+  let products = await Product.find({ category: "tshirts" });
+  let tshirts = {};
+  for (let item of products) {
+    if (item.title in tshirts) {
+      if (
+        !tshirts[item.title].color.includes(item.color) &&
+        item.availableQty > 0
+      ) {
+        tshirts[item.title].color.push(item.color);
+      }
+      if (
+        !tshirts[item.title].size.includes(item.size) &&
+        item.availableQty > 0
+      ) {
+        tshirts[item.title].size.push(item.size);
+      }
+    } else {
+      tshirts[item.title] = JSON.parse(JSON.stringify(item));
+      if (item.availableQty > 0) {
+        tshirts[item.title].color = [item.color];
+        tshirts[item.title].size = [item.size];
+      }
+    }
+  }
 
   return {
-    props: { products: JSON.parse(JSON.stringify(products)) },
+    props: { products: JSON.parse(JSON.stringify(tshirts)) },
   };
 }
 

@@ -34,7 +34,7 @@ const Navbar = ({ cart, addToCart, clearCart, removeFromCart, subTotal }) => {
           <ul className="flex font-bold">
             <Link href={"/tshirts"}>
               <a className="mr-5 hover:text-red-500">
-                <li className="text-gray-900">Tshirts</li>
+                <li className="">Tshirts</li>
               </a>
             </Link>
             <Link href={"/beauty"}>
@@ -60,8 +60,10 @@ const Navbar = ({ cart, addToCart, clearCart, removeFromCart, subTotal }) => {
           </ul>
         </nav>
         <div className="cart absolute  right-2  mr-5 flex">
-          <Link href={'/login'}>
-          <MdAccountCircle className="text-3xl mt-2 text-red-500 cursor-pointer mx-2" />
+          <Link href={"/login"}>
+            <a>
+              <MdAccountCircle className="text-3xl mt-2 text-red-500 cursor-pointer mx-2" />
+            </a>
           </Link>
           <AiOutlineShoppingCart
             className="text-3xl mt-2 text-red-500 cursor-pointer"

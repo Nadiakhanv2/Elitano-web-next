@@ -1,5 +1,8 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
+import Product from "../../models/Product";
+import mongoose from "mongoose";
+
 
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import {
@@ -44,7 +47,7 @@ const Slug = ({addToCart}) => {
                 GlamorWeek
               </h2>
               <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
-                Glamor by Wearing a T-Shirt ( XL/Red )
+                Glamor by Wearing a T-Shirt ( XL/Red)
               </h1>
               <div className="flex mb-4">
                 <span className="flex items-center">
@@ -154,5 +157,31 @@ const Slug = ({addToCart}) => {
     </>
   );
 };
+
+export async function getServerSideProps(context) {
+  if (!mongoose.connections[0].readyState) {
+    await mongoose.connect(process.env.MONGO_URI);
+  }
+  
+  let product = await Product.findOne({ slug: context.query.slug });
+  let variants = await Product.find({ title: "product.title" })
+  let colorSizeSlug = {}
+  for (let  item of variants){
+    if (Object.keys(colorSizeSlug).includes(item.color)){
+      colorSizeSlug[item.color][item.size]={ slug: item.slug }
+    } else {
+      colorSizeSlug[item.color]= { };
+      colorSizeSlug[item.color][item.size] = { slug: item.slug };
+    }
+  }
+
+  return {
+    props: {
+      product: JSON.parse(JSON.stringify(product)),
+      variants: JSON.parse(JSON.stringify(colorSizeSlug)),
+    },
+  };
+}
+
 
 export default Slug;
